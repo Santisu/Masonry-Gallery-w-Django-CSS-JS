@@ -10,3 +10,5 @@ As a django project the requirements are:
   - Django, to create the project, app, handling the model and views.
   - Pillow, to handle the pictures, save them and create thumbnails.
   - Django-multiupload, to handle the multiple upload of pictures.
+
+For the masonry view, I will use the CSS created by <a herf="https://github.com/manumorante">Manu Morante</a> from his repository <a herf="https://github.com/manumorante/mm-masonry.git">mm-masonry</a>
