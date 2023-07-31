@@ -11,4 +11,4 @@ As a django project the requirements are:
   - Pillow, to handle the pictures, save them and create thumbnails.
   - Django-multiupload, to handle the multiple upload of pictures.
 
-For the masonry view, I will use the CSS created by <a herf="https://github.com/manumorante">Manu Morante</a> from his repository <a herf="https://github.com/manumorante/mm-masonry.git">mm-masonry</a>
+For the masonry view, I will use the CSS created by [Manu Morante](https://github.com/manumorante) from his repository [mm-masonry](https://github.com/manumorante/mm-masonry.git). You can see all the options on the [dedicated section of his page](https://masonry.manumorante.com/).
