@@ -1,0 +1,55 @@
+{% extends 'base.html' %} {% load static %} 
+{% block title %}Gallery{% endblock %} 
+{% block content %}
+<div class="container-fluid my-5">
+
+    <div class="mm-columns">
+        {% for picture in pictures%}
+            <div class="mm-columns__item">
+                <a type="button" data-bs-toggle="modal" data-bs-target="#selected-picture" data-pk="{{ picture.pk }}">
+                <img src="{{ picture.thumbnail.url }}" alt="{{ picture.title }}" class="mm-columns__img"
+                    oncontextmenu="return false;" draggable="false" />
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+
+<div class="row d-flex justify-content-center">
+    <form method="POST" enctype="multipart/form-data" class="col-lg-4 d-flex justify-content-between align-items-center my-3 bg-light rounded-3 ml-auto p-3">
+        {% csrf_token %}
+        {{ picture_form }}
+        <input type="submit" name="upload" value="Upload Pictures" class="btn btn-primary">
+    </form>
+</div>
+
+{% comment %} MODAL {% endcomment %}
+<div class="modal fade" id="selected-picture" tabindex="-1" aria-labelledby="selected-picture-label" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body d-flex align-items-center">
+          <img id="pictureModal" src="" alt="Loading..." class="image-fluid modal-img" oncontextmenu="return false;"
+            draggable="false"></img>
+        </div>
+        <div class="modal-footer" id="pictureTags">
+        </div>
+        <div class="row" id="imageInfo">
+        </div>
+        <div>
+          <form method="POST" id="updateForm">
+            {% csrf_token %}
+            {{ picture_data_form.as_p }}
+            <input type="hidden" name="image_id" id="image_id">
+            <div class="d-flex mb-3" id="formCheck">
+            </div>
+            <input type="submit" name="update" value="Update" class="btn btn-primary my-3">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+</div>
+{% endblock%}

@@ -1,0 +1,40 @@
+body {
+    background-color: darkseagreen;
+}
+
+/* Add some style for the pictures */
+.mm-columns__img {
+    transition: 0.3s;
+    border-radius: 10px;
+  }
+  
+.mm-columns__img:hover {
+    transform: scale(1.1, 1.1);
+}
+
+
+/* Set the size of the full picture */
+.modal-img {
+    max-height: 95vh;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Set modal's size */
+.modal-dialog {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* Arrange modal size to adapt to their content */
+.modal-content {
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+  
