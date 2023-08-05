@@ -4,6 +4,7 @@ from PIL import Image
 from django.db.models.signals import pre_delete
 from django.dispatch import receiver
 import uuid
+from django.conf import settings
 
 def picture_file_path(instance, filename):
 
@@ -68,16 +69,20 @@ class Picture(models.Model):
             self.create_thumbnail()
 
     def create_thumbnail(self):
-
-        """Creates thumbnail"""
-
         if not self.thumbnail:
             img = Image.open(self.image.path)
-            quality = 20   # Set thumbnail quality
-            img_copy = img.copy()  # Copy original image
+            quality = 20
+            img_copy = img.copy()
+
             thumbnail_filename = f"thumbnail_{uuid.uuid4().hex}.jpg"
-            thumbnail_path = os.path.join('thumbnails/', thumbnail_filename)
-            save_path = os.path.join('media/', thumbnail_path)
+            thumbnail_path = os.path.join('thumbnails', thumbnail_filename)
+            save_path = os.path.join(settings.MEDIA_ROOT, thumbnail_path)
+
+            # Create the 'thumbnails' directory if it doesn't exist
+            thumbnail_dir = os.path.dirname(save_path)
+            if not os.path.exists(thumbnail_dir):
+                os.makedirs(thumbnail_dir)
+
             img_copy.save(save_path, quality=quality)
             self.thumbnail = thumbnail_path
             self.save()
