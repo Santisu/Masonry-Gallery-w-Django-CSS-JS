@@ -12,15 +12,16 @@ body {
     transform: scale(1.1, 1.1);
 }
 
-
 /* Set the size of the full picture */
+
 .modal-img {
-    max-height: 95vh;
+    max-height: 100%;
+    width: 100%;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-}
+  }
 
 /* Set modal's size */
 .modal-dialog {
@@ -37,4 +38,16 @@ body {
     align-items: center;
     margin: 0 auto;
 }
-  
+    
+.select2-container--open {
+    z-index: 1060;
+}
+
+
+@media only screen and (min-width: 995px) {
+    .modal-img {
+        max-height: 95vh;
+        width: auto;
+    }
+    
+}
