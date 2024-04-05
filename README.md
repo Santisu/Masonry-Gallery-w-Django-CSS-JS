@@ -2,6 +2,8 @@
 
 Gallery app for display pictures with django using CSS for the display and JS for modal view.
 
+This django app is currently being used on my [webpage](https://bigosanti.space/gallery/).
+
 # Introduction
 
 For this project, I will display a gallery app with django, allowing to display a masonry like view of the gallery, adding, editing and deleting pictures, view them through modal and adding hashtags.
